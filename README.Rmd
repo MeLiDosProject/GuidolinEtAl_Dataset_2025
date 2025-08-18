@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 **Version v1.0.0**
 
 <!-- badges: start -->
-<!-- [![DOI](https://zenodo.org/badge/1039961104.svg)](https://doi.org/10.5281/zenodo.16893901) -->
+[![DOI](https://zenodo.org/badge/1040060126.svg)](https://doi.org/10.5281/zenodo.16895188)
 <!-- badges: end -->
 
 ![Overview of light exposure data. (A) location of data collection. (B) collection periods for participants, (C) photoperiods, and (D) double plot of median, interquartile range (50%), 75%, and 95% ribbons of light exposure across all participants. Shaded areas indicate nighttime from civil dusk to civil dawn.](output/figures/Figure_1.png)
@@ -36,7 +36,7 @@ This repository is transitioning towards a [FAIR](https://www.go-fair.org/fair-p
 
 APA reference:
 
-> Guidolin, C., Zauner, J., & Spitschan, M.,  (2025). Personal light exposure dataset for Tuebingen, Germany (Version 1.0.0) [Data set]. URL: https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025. DOI: doi.org/
+> Guidolin, C., Zauner, J., & Spitschan, M.,  (2025). Personal light exposure dataset for Tuebingen, Germany (Version 1.0.0) [Data set]. URL: https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025. DOI: doi.org/10.5281/zenodo.16895188
 
 ## Summary of the dataset
 | Dataset name | cyepi |

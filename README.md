@@ -6,14 +6,13 @@
 
 <img src="images/logo_banner.png"/>
 
-### Personal light exposure dataset for Tuebingen, Germany; collected by Max Planck Institute for Biological Cybernetics (MPI) and used to model the protocol of Guidolin et al. 2024 (MeLiDos field study)
+### Personal light exposure dataset for Tuebingen, Germany; collected by Max Planck Institute for Biological Cybernetics (MPI KYB) and used to model the protocol of Guidolin et al. 2024 (MeLiDos field study)
 
 **Version v1.0.0**
 
 <!-- badges: start -->
 
-<!-- [![DOI](https://zenodo.org/badge/1039961104.svg)](https://doi.org/10.5281/zenodo.16893901) -->
-
+[![DOI](https://zenodo.org/badge/1040060126.svg)](https://doi.org/10.5281/zenodo.16895188)
 <!-- badges: end -->
 
 <figure>
@@ -31,9 +30,9 @@ dawn.</figcaption>
 
 This repository contains the comprehensive dataset for the field study
 site of Tuebingen, Germany. Data were collected by the [Max Planck
-Institute for Biological Cybernetics
-(MPI)](https://www.kyb.tuebingen.mpg.de/en) and are further processed
-and analysed by the [Translational Sensory & Circadian Neuroscience Unit
+Institute for Biological Cybernetics (MPI
+KYB)](https://www.kyb.tuebingen.mpg.de/en) and are further processed and
+analysed by the [Translational Sensory & Circadian Neuroscience Unit
 (TSCN)](https://www.tscnlab.org). This dataset precedes the
 [MeLiDos](www.melidos.eu) protocol [Guidolin et al.,
 2024](https://www.ncbi.nlm.nih.gov/pubmed/39592960) and was partly used
@@ -64,7 +63,7 @@ APA reference:
 > Guidolin, C., Zauner, J., & Spitschan, M., (2025). Personal light
 > exposure dataset for Tuebingen, Germany (Version 1.0.0) \[Data set\].
 > URL: <https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025>.
-> DOI: doi.org/
+> DOI: doi.org/10.5281/zenodo.16895188
 
 ## Summary of the dataset
 

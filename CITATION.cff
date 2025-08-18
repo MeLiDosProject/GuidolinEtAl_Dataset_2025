@@ -35,7 +35,7 @@ identifiers:
     value: 
     description: Zenodo archive (V1.0.0)
   - type: doi
-    value: 
+    value: https://doi.org/10.5281/zenodo.16895188
     description: Zenodo Archive (latest version)
 repository-code: https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025
 url: 'https://www.melidos.eu'
