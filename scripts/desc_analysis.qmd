@@ -26,8 +26,12 @@ library(rnaturalearthdata)
 library(sf)
 library(patchwork)
 library(rlang)
+library(here)
 
 source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/overview_plot.R")
+source(
+  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/summary_table.R"
+)
 ```
 
 # Overview
@@ -141,7 +145,25 @@ data_cleaned |>
 grand_overview(coordinates, "Tübingen", "Germany", country_colors, photoperiod_sequence = 1)
 
 ggsave("../output/figures/Figure_1.png", width = 17, height = 10, scale = 2, units = "cm")
+ggsave("../output/figures/Figure_1.pdf", width = 17, height = 10, scale = 2, units = "cm")
 ```
 
+```{r}
+#| message: false
+#| warning: false
+
+table_summary <-
+light_summary_table(
+  data_cleaned, coordinates, "Tübingen", "Germany", country_colors["Germany"],
+  histograms = TRUE
+)
+
+table_summary
+
+gtsave(table_summary, here("output/tables/table_summary.png"), vwidth = 820)
+gtsave(table_summary, here("output/tables/table_summary.pdf"))
+gtsave(table_summary |> cols_hide(c(plot)), here("output/tables/table_summary.docx"))
+
+```
 
 

@@ -12,7 +12,7 @@
 
 <!-- badges: start -->
 
-[![DOI](https://zenodo.org/badge/1040060126.svg)](https://doi.org/10.5281/zenodo.16895188)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16895188.svg)](https://doi.org/10.5281/zenodo.16895188)
 <!-- badges: end -->
 
 <figure>
