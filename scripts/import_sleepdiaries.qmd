@@ -165,6 +165,9 @@ gtsave(table_sleep |> as_gt(), filename = "../output/tables/table_sleepdiary.png
 ### Export
 
 ```{r}
+sleepdiary <- sleepdiary |> rename(Id = record_id)
+path <- "../data/imported/continuous/"
+if(!dir.exists(path)) dir.create(path, recursive = TRUE)
 save(sleepdiary, file = "../data/imported/continuous/sleepdiaries.RData")
 ```
 

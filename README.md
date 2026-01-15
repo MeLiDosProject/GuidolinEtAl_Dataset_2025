@@ -65,9 +65,38 @@ APA reference:
 > URL: <https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025>.
 > DOI: doi.org/10.5281/zenodo.16895188
 
+## Descriptive statistics
+
+### Demographics
+
+<figure>
+<img src="output/tables/table_demographics.png"
+alt="Summary table of participant demographics" />
+<figcaption aria-hidden="true">Summary table of participant
+demographics</figcaption>
+</figure>
+
+### Light
+
+<figure>
+<img src="output/tables/table_summary.png"
+alt="Summary table of personal light exposure (eye-level data)" />
+<figcaption aria-hidden="true">Summary table of personal light exposure
+(eye-level data)</figcaption>
+</figure>
+
+### Sleep
+
+<figure>
+<img src="output/tables/table_sleepdiary.png"
+alt="Summary table of the morning sleep diary" />
+<figcaption aria-hidden="true">Summary table of the morning sleep
+diary</figcaption>
+</figure>
+
 ## Summary of the dataset
 
-| Dataset name | cyepi |
+| Dataset name | MPI (original cyepi) |
 |----|----|
 | Period of data collection (total) | August 2023 to November 2023 |
 | Location | Tuebingen, Germany |
@@ -79,7 +108,7 @@ APA reference:
 
 The following files are included with this Dataset:
 
-- `data/Metadata_Melidos_TUM.xlsx`: Preliminary Metadata prior to
+- `data/Metadata_Melidos_MPI.xlsx`: Preliminary Metadata prior to
   conversion to JSON
   <!-- - `data/Study_dates_MeLiDos_FUSPCEU.xlsx`: Recruitment dates to clean light exposure recordings -->
 
@@ -119,26 +148,6 @@ The following files are included with this Dataset:
   permissive CC-BY-4.0 license
 
 All data are anonymous.
-
-# Descriptive statistics
-
-## Light
-
-<figure>
-<img src="output/tables/table_summary.png"
-alt="Summary table of personal light exposure" />
-<figcaption aria-hidden="true">Summary table of personal light
-exposure</figcaption>
-</figure>
-
-## Sleep
-
-<figure>
-<img src="output/tables/table_sleepdiary.png"
-alt="Summary table of the morning sleep diary" />
-<figcaption aria-hidden="true">Summary table of the morning sleep
-diary</figcaption>
-</figure>
 
 # Folder structure
 
