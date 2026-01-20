@@ -72,7 +72,7 @@ sleepdiary <-
       c(sleep, bedtime, offset, out_ofbed), 
       \(x) parse_date_time(x, orders = "dmyHM", tz = "UTC")
       ),
-    record_id = as.character(record_id),
+    record_id = paste0("MPI_S", record_id),
     across(
       c(awakenings, awake_duration),
       parse_number
