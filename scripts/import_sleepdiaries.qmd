@@ -21,9 +21,19 @@ library(glue)
 library(readxl)
 library(gt)
 library(gtsummary)
-source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/labeling.R")
-source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/radio_factors.R")
-source("https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/time_summaries.R")
+
+remote <- 
+  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/"
+
+c("labeling",
+  "radio_factors",
+  "time_summaries",
+  "prepare_codebook",
+  "filefinder",
+  "general_parameters",
+  "coltype_checker",
+  "tables"
+) |> walk(\(x) source(paste0(remote, x, ".R")))
 ```
 
 Collect the necessary external information
@@ -160,6 +170,17 @@ sleepdiary |>
 table_sleep
 
 gtsave(table_sleep |> as_gt(), filename = "../output/tables/table_sleepdiary.png")
+```
+
+
+### Set sleep time zone
+```{r}
+site <-  "MPI"
+sleepdiary <- 
+  sleepdiary |> 
+  mutate(across(where(is.POSIXct), 
+                \(x) force_tz(x, tzs[[site]]))
+         )
 ```
 
 ### Export

@@ -52,7 +52,7 @@ data <-
   read_tsv(files, show_col_types = FALSE) |> 
   drop_na(redcap_repeat_instance) |> 
   mutate(native_language = as.logical(native_language),
-         record_id = paste0("MPI_S"))
+         record_id = paste0("MPI_S", record_id))
 #check column types
 coltype_check <- coltype_checker(codebook, data)
 coltype_check$details |> gt()
