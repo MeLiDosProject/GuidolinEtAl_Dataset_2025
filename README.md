@@ -121,6 +121,20 @@ alt="Summary table of the evening exercise diary" />
 diary</figcaption>
 </figure>
 
+## Light exposure behaviour
+
+<figure>
+<img src="output/tables/table_leba.png"
+alt="Summary table of the LEBA questionnaire" />
+<figcaption aria-hidden="true">Summary table of the LEBA
+questionnaire</figcaption>
+</figure>
+
+## Lifestyle and health
+
+*Note: this questionnaire is not available in the `GuidolinEtAl_2025`
+dataset.*
+
 ## Summary of the dataset
 
 | Dataset name | MPI (original cyepi) |

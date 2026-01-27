@@ -1,0 +1,15 @@
+---
+title: "Import lifestyle and health"
+author: "Johannes Zauner"
+format: 
+  html:
+    self-contained: true
+    code-tools: true
+editor_options: 
+  chunk_output_type: console
+---
+
+## Preface
+
+The `health` questionnaire is not available for the `GuidolinEtAl` dataset.
+

@@ -64,6 +64,14 @@ APA reference:
 
 ![Summary table of the evening exercise diary](output/tables/table_exercisediary.png)
 
+## Light exposure behaviour
+
+![Summary table of the LEBA questionnaire](output/tables/table_leba.png)
+
+## Lifestyle and health
+
+*Note: this questionnaire is not available in the `GuidolinEtAl_2025` dataset.*
+
 ## Summary of the dataset
 | Dataset name | MPI (original cyepi) |
 | --- | --- |
