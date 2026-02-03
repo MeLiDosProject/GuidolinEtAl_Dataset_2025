@@ -94,7 +94,7 @@ alt="Summary table of the morning sleep diary" />
 diary</figcaption>
 </figure>
 
-## Chronotype
+### Chronotype
 
 <figure>
 <img src="output/tables/table_chronotype.png"
@@ -103,7 +103,7 @@ alt="Summary table of the chronotype questionnaires" />
 questionnaires</figcaption>
 </figure>
 
-## Wear log
+### Wear log
 
 <figure>
 <img src="output/tables/table_wearlog.png"
@@ -112,7 +112,7 @@ alt="Summary table of the wear log" />
 log</figcaption>
 </figure>
 
-## Exercise diary
+### Exercise diary
 
 <figure>
 <img src="output/tables/table_exercisediary.png"
@@ -121,7 +121,7 @@ alt="Summary table of the evening exercise diary" />
 diary</figcaption>
 </figure>
 
-## Current conditions
+### Current conditions
 
 <figure>
 <img src="output/tables/table_currentconditions.png"
@@ -130,7 +130,7 @@ alt="Summary table of the current conditions EMA" />
 EMA</figcaption>
 </figure>
 
-## Light exposure behaviour
+### Light exposure behaviour
 
 <figure>
 <img src="output/tables/table_leba.png"
@@ -139,7 +139,7 @@ alt="Summary table of the LEBA questionnaire" />
 questionnaire</figcaption>
 </figure>
 
-## Light sensitvity (VLSQ-8)
+### Light sensitvity (VLSQ-8)
 
 <figure>
 <img src="output/tables/table_vlsq8.png"
@@ -148,7 +148,7 @@ alt="Summary table of the light sensitvity (VLSQ-8) questionnaire" />
 (VLSQ-8) questionnaire</figcaption>
 </figure>
 
-## Sleep environment
+### Sleep environment
 
 <figure>
 <img src="output/tables/table_ase.png"
@@ -157,7 +157,7 @@ alt="Summary table of the Sleep environment (ASE) questionnaire" />
 (ASE) questionnaire</figcaption>
 </figure>
 
-## Light glasses acceptability
+### Light glasses acceptability
 
 <figure>
 <img src="output/tables/table_acceptability.png"
@@ -166,10 +166,19 @@ alt="Summary table of the Light glasses acceptability questionnaire" />
 acceptability questionnaire</figcaption>
 </figure>
 
-## Lifestyle and health
+### Lifestyle and health
 
 *Note: this questionnaire is not available in the `GuidolinEtAl_2025`
 dataset.*
+
+### Experience log
+
+<figure>
+<img src="output/tables/table_experiencelog.png"
+alt="Summary table of the lifestyle and health questionnaire" />
+<figcaption aria-hidden="true">Summary table of the lifestyle and health
+questionnaire</figcaption>
+</figure>
 
 ## Summary of the dataset
 
