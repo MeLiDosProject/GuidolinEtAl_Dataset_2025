@@ -1,0 +1,55 @@
+record_id,start,activity_desc_english,activity_desc
+MPI_S218,2023-10-19T18:00:00Z,time indoors,time indoors
+MPI_S218,2023-10-19T19:00:00Z,time indoors,time indoors
+MPI_S218,2023-10-21T16:00:00Z,dance event,dance event
+MPI_S218,2023-10-21T17:00:00Z,dance event,dance event
+MPI_S218,2023-10-21T18:00:00Z,dance event,dance event
+MPI_S218,2023-10-21T19:00:00Z,dance event,dance event
+MPI_S218,2023-10-22T16:00:00Z,worship,worship
+MPI_S218,2023-10-22T17:00:00Z,worship,worship
+MPI_S218,2023-10-22T18:00:00Z,restaurant,restaurant
+MPI_S223,2023-11-05T19:00:00Z,concert,concert
+MPI_S223,2023-11-05T20:00:00Z,concert,concert
+MPI_S224,2023-11-03T18:00:00Z,workout,workout
+MPI_S224,2023-11-04T13:00:00Z,sex,sex
+MPI_S224,2023-11-04T14:00:00Z,sex,sex
+MPI_S224,2023-11-04T15:00:00Z,sex,sex
+MPI_S225,2023-11-04T08:00:00Z,shopping,shopping
+MPI_S225,2023-11-04T09:00:00Z,shopping,shopping
+MPI_S225,2023-11-04T10:00:00Z,shopping,shopping
+MPI_S225,2023-11-05T07:00:00Z,sport,sport
+MPI_S226,2023-10-30T17:00:00Z,buying groceries,buying groceries
+MPI_S227,2023-11-03T17:00:00Z,sport,sport
+MPI_S227,2023-11-03T18:00:00Z,sport,sport
+MPI_S227,2023-11-03T19:00:00Z,sport,sport
+MPI_S228,2023-11-07T18:00:00Z,sport,sport
+MPI_S228,2023-11-09T17:00:00Z,sport,sport
+MPI_S229,2023-11-09T06:00:00Z,doing groceries,doing groceries
+MPI_S229,2023-11-10T17:00:00Z,sport,sport
+MPI_S229,2023-11-10T18:00:00Z,sport,sport
+MPI_S229,2023-11-10T19:00:00Z,sport,sport
+MPI_S230,2023-11-06T11:00:00Z,sport,sport
+MPI_S230,2023-11-07T15:00:00Z,sport,sport
+MPI_S230,2023-11-08T16:00:00Z,sport,sport
+MPI_S230,2023-11-08T17:00:00Z,sport,sport
+MPI_S230,2023-11-08T18:00:00Z,sport,sport
+MPI_S230,2023-11-08T20:00:00Z,jazz bar,jazz bar
+MPI_S230,2023-11-08T21:00:00Z,jazz bar,jazz bar
+MPI_S230,2023-11-09T14:00:00Z,sport,sport
+MPI_S230,2023-11-10T13:00:00Z,sport,sport
+MPI_S230,2023-11-10T17:00:00Z,sport,sport
+MPI_S230,2023-11-10T18:00:00Z,sport,sport
+MPI_S230,2023-11-11T18:00:00Z,free time,free time
+MPI_S230,2023-11-11T19:00:00Z,free time,free time
+MPI_S230,2023-11-12T16:00:00Z,free time,free time
+MPI_S230,2023-11-12T17:00:00Z,free time,free time
+MPI_S230,2023-11-12T18:00:00Z,free time,free time
+MPI_S231,2023-11-07T18:00:00Z,sport,sport
+MPI_S231,2023-11-07T19:00:00Z,sport,sport
+MPI_S231,2023-11-08T18:00:00Z,sport,sport
+MPI_S231,2023-11-08T19:00:00Z,sport,sport
+MPI_S231,2023-11-09T18:00:00Z,sport,sport
+MPI_S231,2023-11-09T19:00:00Z,sport,sport
+MPI_S231,2023-11-10T15:00:00Z,groceries,groceries
+MPI_S231,2023-11-11T09:00:00Z,sport,sport
+MPI_S231,2023-11-11T10:00:00Z,sport,sport
