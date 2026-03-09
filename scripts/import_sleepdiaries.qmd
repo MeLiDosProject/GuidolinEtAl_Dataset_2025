@@ -160,6 +160,18 @@ attr(sleepdiary$sleep_duration, "units") <- "hrs"
 
 ```
 
+
+### Ensure nighttime awake duration when there are no awakenings
+
+```{r}
+sleepdiary <-
+  sleepdiary |> 
+  mutate(
+    awake_duration = replace_when(awake_duration,
+                                  awakenings == 0 ~ 0)
+  )
+```
+
 ## Summarize diary results
 
 ```{r}

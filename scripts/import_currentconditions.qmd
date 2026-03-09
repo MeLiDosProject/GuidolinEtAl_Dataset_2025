@@ -50,7 +50,10 @@ files <- filefinder("currenconditions", continuous = TRUE, individual = TRUE)
 data <- 
   read_csv2(files, show_col_types = FALSE) |> 
   drop_na(redcap_repeat_instance) |> 
-  mutate(record_id = paste0("MPI_S", record_id))
+  mutate(record_id = paste0("MPI_S", record_id),
+         across(c(startdate_4, enddate_4),
+                \(x) parse_date_time(x, c("ymdHMS", "dmyHM")))
+         )
 #check column types
 coltype_check <- coltype_checker(codebook, data)
 coltype_check$details |> gt()
