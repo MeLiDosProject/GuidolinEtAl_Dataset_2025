@@ -267,6 +267,14 @@ sleepdiary <- sleepdiary |> left_join(data_llm, by = c("record_id", "comments"))
 attr(sleepdiary$comments_english, "label") <- "Comments (English translation)"
 ```
 
+### Sort by date
+
+```{r}
+sleepdiary <- 
+  sleepdiary |> 
+  arrange(record_id, bedtime)
+```
+
 ### Export
 
 ```{r}
