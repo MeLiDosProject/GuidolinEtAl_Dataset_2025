@@ -45,15 +45,25 @@ codebook <- prepare_codebook("MeLiDosEveningDiaries_DataDictionary_2024-10-16.cs
 #collect files
 files <- filefinder("exercisediary", continuous = TRUE, individual = TRUE)
 #import files
-data <-
-  read_csv2(files, show_col_types = FALSE) |> 
+data1 <-
+  read_csv2(files[c(1:3, 6:26)], show_col_types = FALSE) |> 
   drop_na(redcap_repeat_instance) |> 
-  mutate(across(c(startdate_3, enddate_3), \(x) parse_date_time(x, c("dmyHM", "ymdHMS"))),
+  mutate(across(c(startdate_3, enddate_3), \(x) parse_date_time(x, c("dmyHM"))),
          commute = parse_number(commute),
          record_id = paste0("MPI_S", record_id),
          sedentary = case_when(sedentary > 1000 ~ sedentary/10,
                                .default = sedentary),
          light_glasses = NA)
+data2 <-
+  read_csv2(files[4:5], show_col_types = FALSE) |> 
+  drop_na(redcap_repeat_instance) |> 
+  mutate(across(c(startdate_3, enddate_3), \(x) parse_date_time(x, c("ymdHMS"))),
+         # commute = parse_number(commute),
+         record_id = paste0("MPI_S", record_id),
+         sedentary = case_when(sedentary > 1000 ~ sedentary/10,
+                               .default = sedentary),
+         light_glasses = NA)
+data <- rbind(data1, data2) |> arrange(record_id, redcap_repeat_instance)
 #check column types
 coltype_check <- coltype_checker(codebook, data)
 coltype_check$details |> gt()
