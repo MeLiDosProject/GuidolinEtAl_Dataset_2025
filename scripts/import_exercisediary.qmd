@@ -48,7 +48,7 @@ files <- filefinder("exercisediary", continuous = TRUE, individual = TRUE)
 data <-
   read_csv2(files, show_col_types = FALSE) |> 
   drop_na(redcap_repeat_instance) |> 
-  mutate(across(c(startdate_3, enddate_3), \(x) parse_date_time(x, "dmyHM")),
+  mutate(across(c(startdate_3, enddate_3), \(x) parse_date_time(x, c("dmyHM", "ymdHMS"))),
          commute = parse_number(commute),
          record_id = paste0("MPI_S", record_id),
          sedentary = case_when(sedentary > 1000 ~ sedentary/10,
