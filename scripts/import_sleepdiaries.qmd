@@ -156,7 +156,7 @@ sleepdiary |>
 
 attr(sleepdiary$sleep, "label") <- "Sleep onset (calculated)"
 attr(sleepdiary$sleep_duration, "label") <- "Sleep duration (calculated)"
-attr(sleepdiary$sleep_duration, "units") <- "hrs"
+attr(sleepdiary$sleep_duration, "units") <- "hours"
 
 ```
 
@@ -272,7 +272,8 @@ attr(sleepdiary$comments_english, "label") <- "Comments (English translation)"
 ```{r}
 sleepdiary <- 
   sleepdiary |> 
-  arrange(record_id, bedtime)
+  arrange(record_id, bedtime) |> 
+  dplyr::relocate(comments, .after = daytype2)
 ```
 
 ### Export
