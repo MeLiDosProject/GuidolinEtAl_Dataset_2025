@@ -280,6 +280,8 @@ sleepdiary <-
 
 ```{r}
 sleepdiary <- sleepdiary |> rename(Id = record_id)
+attr(sleepdiary$sleep, "label") <- "Sleep onset (calculated)"
+attr(sleepdiary$sleep_duration, "label") <- "Sleep duration (calculated)"
 path <- "../data/imported/continuous/"
 if(!dir.exists(path)) dir.create(path, recursive = TRUE)
 save(sleepdiary, file = "../data/imported/continuous/sleepdiaries.RData")
