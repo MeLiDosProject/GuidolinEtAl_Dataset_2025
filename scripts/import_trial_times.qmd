@@ -28,8 +28,7 @@ Study_dates <-
     select(Id, start, end) |> 
     mutate(across(c(start, end), \(x) force_tz(x, melidos_tzs[site])),
            trial = TRUE) |> 
-  group_by(Id) |> 
-  mutate(Id = paste0("MPI_S", Id))
+  group_by(Id)
 ```
 
 ## Exporting values

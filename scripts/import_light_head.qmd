@@ -60,6 +60,11 @@ files <- filefinder("actlumus", continuous = TRUE, negate = "Report")
 
 ```{r}
 data <- import$ActLumus(files, tzs[site], auto.id = pattern)
+data <- 
+  data |> 
+  mutate(position = "glasses",
+         Id = paste0("MPI_S", Id)
+  )
 ```
 
 ## Regularizing data
@@ -106,12 +111,6 @@ data_cleaned |> gap_table(MEDI) |> cols_hide(ends_with("_n"))
 ## Exporting values
 
 ```{r}
-data_cleaned <- 
-  data_cleaned |> 
-  mutate(position = "glasses",
-         Id = paste0("MPI_S", Id)
-  )
-
 light_glasses_1min <- 
 data_cleaned |> 
   aggregate_Datetime("1 minute", numeric.handler = \(x) mean(x, na.rm = TRUE)) |> 
