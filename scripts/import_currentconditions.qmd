@@ -21,11 +21,13 @@ library(glue)
 library(readxl)
 library(gt)
 library(gtsummary)
+source("mpi_timestamp_helpers.R")
 
 site <- "MPI"
 
-remote <- 
-  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/"
+metadata_root <- Sys.getenv("MELIDOS_METADATA_ROOT", unset = "../metadata")
+stopifnot(dir.exists(file.path(metadata_root, "scripts")))
+remote <- paste0(normalizePath(file.path(metadata_root, "scripts")), "/")
 
 c("labeling",
   "radio_factors",
@@ -48,11 +50,12 @@ codebook <- prepare_codebook("MeLiDosCurrentConditions4xday_DataDictionary_2024-
 files <- filefinder("currenconditions", continuous = TRUE, individual = TRUE)
 #import files
 data <- 
-  read_csv2(files, show_col_types = FALSE) |> 
+  read_csv2(files, show_col_types = FALSE,
+            col_types = cols(startdate_4 = col_character(), enddate_4 = col_character())) |>
   drop_na(redcap_repeat_instance) |> 
   mutate(record_id = paste0("MPI_S", record_id),
          across(c(startdate_4, enddate_4),
-                \(x) parse_date_time(x, c("ymdHMS", "dmyHM")))
+                parse_mpi_timestamp)
          )
 #check column types
 coltype_check <- coltype_checker(codebook, data)
@@ -92,6 +95,7 @@ attr(data$enddate_4, "label") <- "EMA time (finish)"
 ## Summarize results
 
 ```{r}
+#| purl: false
 table_currentconditions(data)
 
 gtsave(table_currentconditions(data) |> as_gt(), filename = "../output/tables/table_currentconditions.png", vwidth = 800)

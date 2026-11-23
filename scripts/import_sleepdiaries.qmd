@@ -22,8 +22,9 @@ library(readxl)
 library(gt)
 library(gtsummary)
 
-remote <- 
-  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/"
+metadata_root <- Sys.getenv("MELIDOS_METADATA_ROOT", unset = "../metadata")
+stopifnot(dir.exists(file.path(metadata_root, "scripts")))
+remote <- paste0(normalizePath(file.path(metadata_root, "scripts")), "/")
 
 c("labeling",
   "radio_factors",
@@ -41,7 +42,7 @@ Collect the necessary external information
 ```{r}
 codebook <- 
   read_csv(
-  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/codebook/MeLiDosMorningSleepDiaries_DataDictionary_2024-10-16.csv", show_col_types = FALSE
+  paste0(sub("scripts/$", "codebook/", remote), "MeLiDosMorningSleepDiaries_DataDictionary_2024-10-16.csv"), show_col_types = FALSE
   )
 #clean up labels
 codebook <-
@@ -172,9 +173,29 @@ sleepdiary <-
   )
 ```
 
+### Apply the approved out-of-bed correction
+
+For MPI_S231 on 12 November 2023, set the out-of-bed time to missing because
+08:15 precedes the recorded wake time of 08:44. Retain wake time and all other
+fields. MPI_S213's incomplete record beginning 17 September remains unchanged.
+
+```{r}
+correction_row <- which(
+  sleepdiary$record_id == "MPI_S231" &
+    sleepdiary$sleepprep == as.POSIXct("2023-11-12 00:50:00", tz = tzs[[site]]) &
+    sleepdiary$wake == as.POSIXct("2023-11-12 08:44:00", tz = tzs[[site]])
+)
+stopifnot(length(correction_row) == 1L)
+stopifnot(is.na(sleepdiary$out_ofbed[correction_row]) ||
+  sleepdiary$out_ofbed[correction_row] ==
+    as.POSIXct("2023-11-12 08:15:00", tz = tzs[[site]]))
+sleepdiary$out_ofbed[correction_row] <- NA
+```
+
 ## Summarize diary results
 
 ```{r}
+#| purl: false
 table_sleep <- 
 sleepdiary |> 
   tbl_summary(include = -c(comments, record_id),

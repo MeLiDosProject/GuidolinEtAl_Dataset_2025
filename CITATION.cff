@@ -32,9 +32,6 @@ authors:
     orcid: 'https://orcid.org/0000-0002-8572-9268'
 identifiers:
   - type: doi
-    value: https://doi.org/10.5281/zenodo.16895307
-    description: Zenodo archive (V1.0.0)
-  - type: doi
     value: https://doi.org/10.5281/zenodo.16895188
     description: Zenodo Archive (latest version)
 repository-code: https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025
@@ -58,5 +55,5 @@ keywords:
   - melanopic
   - naturalistic setting
 license: CC-BY-4.0
-version: 1.0.0
-date-released: '2025-08-18'
+version: 1.2.0
+date-released: '2026-11-23'

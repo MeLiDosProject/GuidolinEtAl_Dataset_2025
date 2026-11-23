@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 ### Personal light exposure dataset for Tuebingen, Germany; collected by Max Planck Institute for Biological Cybernetics (MPI KYB) and used to model the protocol of Guidolin et al. 2024 (MeLiDos field study)
 
-**Version v1.0.0**
+**Version v1.2.0**
 
 <!-- badges: start -->
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16895188.svg)](https://doi.org/10.5281/zenodo.16895188)
@@ -36,7 +36,16 @@ This repository is transitioning towards a [FAIR](https://www.go-fair.org/fair-p
 
 APA reference:
 
-> Guidolin, C., Zauner, J., & Spitschan, M.,  (2025). Personal light exposure dataset for Tuebingen, Germany (Version 1.0.0) [Data set]. URL: https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025. DOI: doi.org/10.5281/zenodo.16895188
+> Guidolin, C., Zauner, J., & Spitschan, M.,  (2026). Personal light exposure dataset for Tuebingen, Germany (Version 1.2.0) [Data set]. URL: https://github.com/MeLiDosProject/GuidolinEtAl_Dataset_2025. DOI: doi.org/10.5281/zenodo.16895188
+
+### Reproducing the corrected exports
+
+The current exports are in `data/imported/`; their source importers are in
+`scripts/import_*.qmd`. See [CHANGELOG.md](CHANGELOG.md) for the changes in this
+release and [REPRODUCING.md](REPRODUCING.md) for execution and verification.
+The release includes a fixed copy of its metadata helpers and codebooks in
+`metadata/`. Raw source records remain available for traceability. Superseded
+importers and generated HTML reports are available in Git history.
 
 ## Descriptive statistics
 
@@ -195,5 +204,4 @@ This folder contains individual-level data for N=26 participant, each stored in 
 | **discharge/** | PID_feedback_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |
 | **discharge/** | PID_mTFA_yyyymmdd.csv | Completed at discharge (Monday, day 8).  |  |
 
-The folder "ambient" contains the txt files and reports from the environmental light logger (ActLumus) placed on the rooftop of the laboratory, which measured data with a temporal frequency of 30 seconds. Furthermore, the xlxs file "cyepi_amb_schedule" contains, for every calendar week in which participants took part in the experiment, timestamps for when the experimenter cleaned the set-up and related comments. 
-
+The folder "ambient" contains the txt files and reports from the environmental light logger (ActLumus) placed on the rooftop of the laboratory, which measured data with a temporal frequency of 30 seconds. Furthermore, the xlxs file "cyepi_amb_schedule" contains, for every calendar week in which participants took part in the experiment, timestamps for when the experimenter cleaned the set-up and related comments.

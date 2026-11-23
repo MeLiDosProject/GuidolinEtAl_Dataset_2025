@@ -22,8 +22,10 @@ library(readxl)
 library(gt)
 library(gtsummary)
 source("../project_globals.R")
-remote <- 
-  "https://raw.githubusercontent.com/MeLiDosProject/Data_Metadata_Conventions/main/scripts/"
+source("mpi_timestamp_helpers.R")
+metadata_root <- Sys.getenv("MELIDOS_METADATA_ROOT", unset = "../metadata")
+stopifnot(dir.exists(file.path(metadata_root, "scripts")))
+remote <- paste0(normalizePath(file.path(metadata_root, "scripts")), "/")
 
 c("labeling",
   "radio_factors",
@@ -49,11 +51,15 @@ codebook <- prepare_codebook("MeLiDosEveningDiaries_DataDictionary_2024-10-16.cs
 files <- filefinder("mHLEA_digital", continuous = TRUE, individual = TRUE)
 #import files
 data <- 
-  read_csv2(files, show_col_types = FALSE) |> 
+  read_csv2(files, show_col_types = FALSE, id = "source_file",
+            col_types = cols(startdate = col_character(), enddate = col_character())) |>
+  group_by(source_file) |>
+  mutate(source_row = row_number()) |>
+  ungroup() |>
   drop_na(redcap_repeat_instance) |> 
   mutate(
   across(c(startdate, enddate), 
-           \(x) parse_date_time(x, c("ymdHMS", "dmyHM")))
+           parse_mpi_timestamp)
     ) |> 
       mutate(record_id = paste0("MPI_S", record_id))
 #check column types
@@ -63,7 +69,7 @@ coltype_check$details |> gt()
 relevant_columns <- 
   coltype_check$details |> 
   pull(col) |> 
-  union("startdate")
+  union(c("startdate", "enddate", "source_file", "source_row"))
 #select relevant columns
 data <- data |> select(any_of(relevant_columns))
 #label variables
@@ -75,16 +81,33 @@ data |>
                     levels_col = `Choices, Calculations, OR Slider Labels`
                     ) |> 
   add_col_labels(codebook, var_col = `Variable / Field Name`, label_col = `Field Label`) |> 
-  select(record_id, startdate, mhlea_confidence)
+  select(record_id, startdate, enddate, mhlea_confidence, source_file, source_row)
 ```
 
 ## Set relevant dates
+
+For repeated submissions on the same participant-day, retain the latest
+completion time (`enddate`), falling back to `startdate` when completion time
+is missing. Conflicting ratings tied at the latest time stop the export.
+All submissions and the selection indicator are saved in the data-quality log.
 
 ```{r}
 #if data was collected between 14:00 and 24:00, it is assigned to the same day.
 #if collected between 00:00 and 13:59, it is assigned to the previous day.
 
-data <- data |> diarydate(startdate)
+confidence_resolution <- select_latest_mpi_confidence(data)
+dir.create("../output/data_quality", recursive = TRUE, showWarnings = FALSE)
+confidence_audit <- confidence_resolution$submissions |>
+  mutate(
+    source_file = sub("^[.][.]/", "", source_file),
+    mhlea_confidence = as.integer(mhlea_confidence)
+  ) |>
+  select(record_id, source_file, source_row, startdate, enddate, Date,
+         mhlea_confidence, submitted_at, selected)
+write_csv(confidence_audit,
+          "../output/data_quality/confidence_submissions.csv")
+data <- confidence_resolution$selected |>
+  select(record_id, Date, startdate, mhlea_confidence)
 attr(data$Date, "label") <- "Date"
 ```
 
@@ -137,7 +160,7 @@ data_paper <-
 ```{r}
 data <- 
 data_paper |> 
-  left_join(data, by = c("record_id", "Date")) |> 
+  left_join(data, by = c("record_id", "Date"), relationship = "many-to-one") |>
   relocate(startdate, .after = last_col()) |> 
   mutate(lightsource = str_replace_all(lightsource, "X|x", "D"),
          lightsource = str_remove_all(lightsource, "NA"),
@@ -315,6 +338,7 @@ data <- add_labels(data, labels_mHLEA)
 ## Summarize results
 
 ```{r}
+#| purl: false
 table <- 
   data |> 
   select(-c(start, end, Date, activity_desc, activity_desc_english, startdate)) |> 
